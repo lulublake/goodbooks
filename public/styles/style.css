@@ -236,7 +236,9 @@ input[type=number] {
     font-size: 10px;
   }
   .all-books {
+    align-self: flex-start;
     padding: 0 20px;
+    width: 100%;
   }
   .book {
     gap: 15px;
