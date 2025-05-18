@@ -21,7 +21,7 @@
 This website is a personal book showcase where I display books I've read, share my reviews and ratings, and manage my reading list. Visitors can browse through the collection, read my thoughts on each book, and even add, edit, or delete book entries.
 
 ### Screenshot
-![Screenshot](images/desktop-preview.png)
+![Screenshot](/public/images/desktop-preview.png)
 
 ### Links
 - Solution URL: https://goodbooks-c5le.onrender.com/
