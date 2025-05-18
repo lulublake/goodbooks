@@ -70,13 +70,14 @@ body {
   flex-direction: column;
   padding: 0 40px;
   gap: 25px;
-  align-items: center;
+  align-self: center;
   margin-bottom: 50px;
+  width: 65%;
 }
 .book {
   display: flex;
   gap: 20px;
-  width: 65%;
+  width: 100%;
 }
 .book-img {
   width: 155px;
@@ -86,6 +87,7 @@ body {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  width: 80%;
 }
 h2 {
   text-transform: uppercase;
