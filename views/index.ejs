@@ -1,0 +1,45 @@
+<%- include('partials/header.ejs') %>
+
+<div class="option-heading">
+    <h1 class="book-heading">My BookShelf 📓</h1>
+    <form action="/sort-option" method="get" id="select-form">
+        <label for="options">Sort by:</label>
+        <select name="options" id="options" onchange="this.form.submit()">
+            <option value="" disabled <%= !locals.selected? "selected" : "" %>>Select option</option>
+            <option value="rating" <%= locals.selected === "rating"? "selected" : "" %>>By rating</option>
+            <option value="date" <%= locals.selected === "date"? "selected" : "" %>>By date</option>
+            <option value="title" <%= locals.selected === "title"? "selected" : "" %>>By title</option>
+        </select>
+    </form>
+</div>
+<div class="add-new">
+    <form action="/add" method="post">
+        <button type="submit" class="change-btn add-btn">Add new book</button>
+    </form>
+</div>
+<div class="all-books">
+    <% if (books) { %>
+        <% for (let i = 0; i < books.length; i++) { %>
+            <% let book = books[i] %>
+            <div class="book">
+                <div>
+                    <img src="<%= book.cover_url %>" alt="<%= book.title %>" class="book-img">
+                </div>
+                <div class="book-details">
+                    <h2><%= book.title %> by <%= book.author %></h2>
+                    <p><span>Review:</span> <%= book.review %></p>
+                    <p><span>Rating:</span> <%= book.rating %>/10</p>
+                    <p><span>Date added:</span> <%= book.date_added %></p>
+                    <form method="post" class="changebuttons">
+                        <button class="change-btn" formaction="/edit" name="bookID" value="<%= book.id %>">Edit</button>
+                        <button class="change-btn" formaction="/delete" name="bookID" value="<%= book.id %>">Delete</button>
+                    </form>
+                </div>
+            </div>
+        <% } %>        
+    <% } else{ %>
+        <h2>No book found.</h2>
+    <% } %> 
+</div>
+
+<%- include('partials/footer.ejs') %>

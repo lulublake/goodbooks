@@ -1,0 +1,22 @@
+<%- include('partials/header.ejs') %>
+
+<div class="newbook-body">
+  <h1 class="book-heading">Add a new book 📓</h1>
+  <form action="/new" method="post" class="new-form">
+    <label for="isbn" class="input-tags">Book ISBN:
+     <input type="number" name="isbn" id="" placeholder="<%= locals.isbn_error ? isbn_error : 'Enter book isbn' %>" /> 
+    </label>
+    
+    <label for="review" class="input-tags review">Review:
+      <textarea type="text" name="review" placeholder="<%= locals.error ? error : 'Give a review...' %>" id="review"></textarea>
+    </label>
+    
+    <label for="rating" class="input-tags">Rating:
+      <input type="number" step="0.01" name="rating" id="" placeholder="<%= locals.rating_error ? rating_error : 'Rate book...' %>"/>
+    </label>
+    
+    <button type="submit" class="change-btn">Add Book</button>
+  </form>
+</div>
+
+<%- include('partials/footer.ejs') %>

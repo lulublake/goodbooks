@@ -1,0 +1,20 @@
+<%- include('partials/header.ejs') %>
+<div class="newbook-body">
+  <h1 class="book-heading">Edit existing book 📓</h1>
+  <form action="/update" method="post" class="new-form">
+    <label for="isbn" class="input-tags">Book ISBN:
+      <input type="number" name="isbn" id="" placeholder="Enter book isbn" value="<%= locals.book? book.isbn : '' %>" disabled/> 
+    </label>
+    
+    <label for="review" class="input-tags review">Review:
+      <textarea type="text" name="review" placeholder="Give a review..." id="review"><%= locals.book? book.review : '' %></textarea>
+    </label>
+    
+    <label for="rating" class="input-tags">Rating:
+      <input type="number" step="0.01" name="rating" id="" value="<%= locals.book? book.rating : '' %>"/>
+    </label>
+    <input type="hidden" name="bookID" value="<%= locals.book? book.id : '' %>">
+    <button type="submit" class="change-btn">Update Book</button>
+  </form>
+</div>
+<%- include('partials/footer.ejs') %>
