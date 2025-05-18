@@ -24,7 +24,7 @@ This website is a personal book showcase where I display books I've read, share 
 ![Screenshot](images/desktop-preview.png)
 
 ### Links
-- Solution URL:
+- Solution URL: https://goodbooks-c5le.onrender.com/
 - Live URL: https://github.com/lulublake/goodbooks.git
 
 ## Technologies Used
@@ -65,7 +65,7 @@ CREATE TABLE read_books(
   author TEXT,
   review TEXT NOT NULL,
   date_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  rating INTEGER NOT NULL
+  rating FLOAT NOT NULL
 );
 ```
 2. Clone the repository:
