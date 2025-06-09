@@ -29,7 +29,7 @@ const db = new pg.Client({
 db.connect();  
 
 async function allBooks(){
-    const result = await db.query('SELECT * FROM read_books ORDER BY id ASC');
+    const result = await db.query('SELECT * FROM read_books ORDER BY id DESC');
     const books = [];
     result.rows.forEach((book) => {
         books.push(book);
