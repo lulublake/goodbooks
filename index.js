@@ -75,6 +75,13 @@ app.post('/search', async(req, res) => {
             'SELECT * FROM read_books WHERE title ILIKE $1',
             [`%${bookName}%`]
         );
+        if(result.rows.length === 0){
+          const books = await allBooks();
+          return res.render('index.ejs', {
+            books: books,
+            error: "No book found"
+          });
+        }
         result.rows.forEach((book) => {
             newBooks.push(book);
         });
@@ -82,11 +89,6 @@ app.post('/search', async(req, res) => {
             books: newBooks
         });
     } catch (error) {
-        const books = await allBooks();
-        res.render('index.ejs', {
-            books: books,
-            error: "No book found"
-        });
         console.log(error);
     }
      
